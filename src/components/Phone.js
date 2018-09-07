@@ -15,9 +15,12 @@ const PhoneEl = styled.div`
 		background-color: #fff
 	}
 	cursor: pointer;
+	&:hover .details_wrap{
+		margin-bottom: 40px;
+	}
 	&:hover > .buttons_wrap{
 		opacity:1;
-		bottom: 20px;
+		bottom: 30px;
 	}
 `;
 
@@ -46,7 +49,12 @@ const OfferTextEl = styled.h3`
 `;
 
 const DetailsWrap = styled.div`
-	
+	position: absolute;
+	width: calc(100% - 30px);
+	bottom: 15px;
+	left: -1;
+	right: -1;
+	transition: all 0.2s ease;
 `;
 
 const SeparatorEl = styled.hr`
@@ -93,7 +101,7 @@ const PriceEl = styled.p`
 `;
 
 const MainImageEl = styled.div`
-	margin: 0 auto 35px;
+	margin: 0 auto 150px;
 `;
 
 const ColorsEl = styled.ul`
@@ -171,12 +179,12 @@ export default function Phone({
 	console.log(phone.props.children.props.device.displayName+":", phone.props.children.props.device)
 	return(
 		<PhoneEl className = "phone">
+			<OfferTextEl>Upgrade & get $100 off, or add a new line & get $300 off on us. Trade-in required.</OfferTextEl>
 			<MainImageEl>
 				<img src = {phone.props.children.props.device.imageUrl} alt = {phone.props.children.props.device.displayName} />
 			</MainImageEl>
 			<div>
-				<DetailsWrap>
-					<OfferTextEl>Upgrade & get $100 off, or add a new line & get $300 off on us. Trade-in required.</OfferTextEl>
+				<DetailsWrap className = "details_wrap">
 					<SeparatorEl></SeparatorEl>
 					<PriceDetailsEl className = "price_details">
 						<BrandPriceEl>
